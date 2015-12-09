@@ -1,0 +1,46 @@
+{
+  "name": "SocialJet_Admin",
+  "description": "",
+  "main": "",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "jquery.inputmask": "~3.2.4",
+    "tablesorter": "jquery.tablesorter#~2.24.6",
+    "modernizr": "components/modernizr#~2.8.3",
+    "selectize": "~0.12.1",
+    "zeroclipboard": "~2.2.0",
+    "font-awesome": "fontawesome#~4.5.0",
+    "lodash": "~3.10.1"
+  },
+  "overrides": {
+    "jquery.inputmask" : {
+      "main": "dist/jquery.inputmask.bundle.js"
+    },
+    "bootstrap": {
+      "main": "dist/js/bootstrap.js"
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    },
+    "tablesorter": {
+      "main": [
+        "dist/js/jquery.tablesorter.combined.js"
+      ]
+    },
+    "selectize": {
+      "main": [
+        "dist/js/selectize.js"
+      ]
+    },
+    "zeroclipboard": {
+      "main": [
+        "dist/ZeroClipboard.js"
+      ]
+    }
+  }
+}

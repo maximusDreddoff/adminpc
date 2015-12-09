@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>products edit</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- build:css css/plugins.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <!-- endbuild -->
+
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js js/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+  <div class="loader"></div>
+
+    <!-- header -->
+    <header class="header-main">
+      <div class="container">
+        <nav class="navbar" role="navigation">
+          <ul class="nav navbar-nav">
+            <li class="active view-mode3-hidden"><a href="#">Продукты</a></li>
+            <li class="view-mode3-hidden view-mode4-hidden view-mode5-hidden view-mode6-hidden view-mode21-hidden"><a href="#">Обмен трафиком</a></li>
+            <li class="view-mode5-hidden view-mode6-hidden"><a href="#">Статистика</a></li>
+            <li class="view-mode6-hidden view-mode21-hidden"><a href="#">Рекламодатели</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><i class="icon icon-exit"></i><span class="sr-only">Exit</span></a></li>
+          </ul>
+
+          <p class="navbar-text navbar-right">manager2@socialjet.ru</p>
+        </nav>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <!-- content -->
+    <div class="content">
+      <div class="container">
+        <!-- breadcrumb -->
+        <ol class="breadcrumb">
+          <li><a href="#">Продукты</a></li>
+        </ol>
+        <!-- /breadcrumb -->
+
+        <section class="product-edit product-edit-form" id="product-edit">
+          <!--<form action="#" class="product-edit-form" role="form">-->
+            <div class="row product-edit-header">
+              <div class="col-xs-6">
+                <div class="checkbox toggle">
+                  <label>
+                    <input type="checkbox" value="" class="product-enabled">
+                    <span class="checkbox-input"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-xs-6 text-right">
+                <a href="#" class="btn btn-default">Вернуться</a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 form-inline filter-form">
+                <div class="clearfix">
+                  <div class="form-group">
+                    <label for="product-name">Название</label>
+                    <input type="text" id="product-name" name="product-name" class="form-control product-name">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="product-category">Категория</label>
+                    <select id="product-category" class="form-control product-category">
+                      <option value="1">Рекомендуемые</option>
+                      <option value="2">Остальные</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="product-domain">Домен</label>
+                    <input type="text" id="product-domain" name="clickDomain" class="form-control product-domain">
+                  </div>
+                </div>
+
+                <div class="clearfix">
+                  <div class="form-group">
+                    <label for="product-payment-method">Способ оплаты</label>
+                    <select id="product-payment-method" class="form-control product-payment-method">
+                      <option value="3">Стандартный</option>
+                      <option value="1">Любой клик</option>
+                      <option value="2">Уникальный клик</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group product-price-wrap">
+                    <label for="product-price">Цена</label>
+                    <input type="text" id="product-price" name="product-price" class="form-control product-price">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="product-social-network">Социальная сеть</label>
+                    <select id="product-social-network" class="form-control product-social-network">
+                      <option value="null">Все</option>
+                      <option value="1">Одноклассники</option>
+                      <option value="2">Вконтакте</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="product-postback-out">Внешний постбек</label>
+                    <input type="text" id="product-postback-out" class="form-control product-postback-out">
+                  </div>
+                </div>
+
+                <div class="clearfix">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" class="product-disable-comments">
+                      <span class="checkbox-input"></span>Отключить комментарии к постам продукта
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 form-inline">
+                <h2>Описание продукта <small><span class="pseudo-link" data-toggle="collapse" data-target="#porductDescriptionWrap" aria-expanded="false" aria-controls="porductDescriptionWrap">Свернуть</span></small></h2>
+
+                <div id="porductDescriptionWrap" class="collapse in product-description-wrap">
+                  <div class="clearfix">
+                    <div class="form-group">
+                      <label for="product-desc"><span class="text-muted">Описание продукта</span></label>
+                      <textarea id="product-desc" class="form-control product-desc"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="clearfix">
+                    <div class="form-group product-img">
+                      <form class="upload-img-form" action="#" enctype="multipart/form-data">
+                        <label for="product-preview"><span class="text-muted">Превью  (94х49 px)</span></label>
+                        <input type="file" name="file" id="product-preview" class="product-img-upload" />
+                        <button type="button" class="btn btn-primary">Загрузить превью</button>
+                        <div class="product-img-wrap preview"></div>
+                      </form>
+                    </div>
+
+                    <div class="form-group product-img">
+                      <form class="upload-img-form" action="#" enctype="multipart/form-data">
+                        <label for="product-photo"><span class="text-muted">Полная фотография продукта</span></label>
+                        <input type="file" name="file" id="product-photo" class="product-img-upload" />
+                        <button type="button" class="btn btn-primary">Загрузить фото</button>
+                        <div class="product-img-wrap photo"></div>
+                      </form>
+                    </div>
+                  </div>
+
+                  <div class="clearfix">
+                    <div class="form-group">
+                      <label for="product-work-model">Модель работы</label>
+
+                      <select name="product-work-model" id="product-work-model" class="form-control product-work-model">
+                        <option value="cpc">CPC</option>
+                        <option value="cpa">CPA</option>
+                        <option value="cpi">CPI</option>
+                        <option value="cps">CPS</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="clearfix product-categories">
+                    <label>Категории продукта:</label>
+
+                    <div class="row">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <h2>Конструктор ссылок <small><span class="pseudo-link collapsed" data-toggle="collapse" data-target="#linkConstructorWrap" aria-expanded="false" aria-controls="linkConstructorWrap">Развернуть</span></small></h2>
+
+                <div id="linkConstructorWrap" class="collapse">
+                  <div class="table-product-wrap">
+                    <table class="table table-product">
+                      <col width="122px" />
+                      <col width="32px" />
+                      <col width="117px" />
+                      <col width="121px" />
+                      <col width="51px" />
+                      <col width="204px" />
+                      <col width="132px" />
+                      <col width="117px" />
+                      <col width="70px" span="3" />
+                      <col width="82px" />
+                      <thead>
+                      <tr>
+                        <th>Название группы</th>
+                        <th></th>
+                        <th>Партнерская сеть</th>
+                        <th>Название ссылки</th>
+                        <th>ID</th>
+                        <th>URL</th>
+                        <th>Устройства</th>
+                        <th>Страна</th>
+                        <th>Цена</th>
+                        <th>Отчисл.</th>
+                        <th>Вебм.</th>
+                        <th></th>
+                      </tr>
+                      </thead>
+                    </table>
+
+
+                  </div>
+
+                  <div class="form-group">
+                    <button class="btn btn-primary btn-add-group-link" type="button">Добавить группу ссылок</button>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" value="СОХРАНИТЬ" class="btn btn-primary btn-save-product"/>
+                </div>
+              </div>
+            </div>
+          <!--</form>-->
+
+          <div class="row">
+            <div class="col-xs-12">
+              <form class="form-inline filter-form product-link-filter-form" action="#" role="form">
+                <div class="form-group">
+                  <label for="enabled">Показать</label>
+                  <select class="form-control product-link-filter-enabled" id="enabled">
+                    <option value="0">Все</option>
+                    <option value="true">Включенные</option>
+                    <option value="false">Выключенные</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="country">Cтрана</label>
+                  <select class="form-control product-link-filter-country" id="country">
+                    <option value="0">Все</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="device">Устройство</label>
+                  <select class="form-control product-link-filter-device" id="device">
+                    <option value="0">Все</option>
+                    <option value="1">Телефон</option>
+                    <option value="2">Компьютер</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Период с</label>
+                  <input type="text" class="form-control date-from product-link-date-min"/>
+                  <label>по</label>
+                  <input type="text" class="form-control date-to product-link-date-max"/>
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" value="Показать" class="btn btn-primary"/>
+                </div>
+              </form>
+
+              <div class="table-link-product-stat-wrap">
+                <table class="table table-list table-sort table-link-product-stat">
+                  <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Группа</th>
+                    <th>Название ссылки</th>
+                    <th>Рекл.</th>
+                    <th data-sort-init="desc" class="text-right"></th>
+                    <th>Страна</th>
+                    <th>Устройство</th>
+                    <th data-sort-type="format">Клики/уник</th>
+                    <th data-sort-type="format"><span class="icon icon-phone"></span></th>
+                    <th data-sort-type="format"><span class="icon icon-ok"></span></th>
+                    <th data-sort-type="format"><span class="icon icon-decline"></span></th>
+                    <th data-sort-type="format"><span class="icon icon-time"></span></th>
+                    <th data-sort-type="format" class="view-mode6-hidden">Σ заказы</th>
+                    <th data-sort-type="format" class="view-mode6-hidden">Σ принято</th>
+                    <th data-sort-type="format" class="view-mode6-hidden">Σ отклон</th>
+                    <th data-sort-type="format" class="view-mode6-hidden">Σ ожид.</th>
+                    <th data-sort-type="format" class="view-mode6-hidden">Апрув</th>
+                    <th data-sort-type="format" class="view-mode6-hidden">Конв.</th>
+                    <th data-sort-type="format">CPC</th>
+                  </tr>
+                  </thead>
+                  <tbody></tbody>
+                  <tfoot></tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      var productId = 100138;
+    </script>
+    <!-- /content -->
+
+    <!-- build:js js/plugins.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <script src="js/vendor/jquery-ui.js"></script>
+    <script src="js/vendor/jquery.number.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js js/app.js -->
+    <script src="js/sja.js"></script>
+    <script src="js/sja.config.js"></script>
+    <script src="js/sja.common.js"></script>
+    <script src="js/sja.ajax.js"></script>
+    <script src="js/sja.adv.js"></script>
+    <script src="js/sja.adv-edit.js"></script>
+    <script src="js/sja.product-edit.js"></script>
+    <script src="js/sja.product.js"></script>
+    <script src="js/sja.posts.js"></script>
+    <script src="js/sja.tasks.js"></script>
+    <script src="js/sja.tasks-stat.js"></script>
+    <script src="js/sja.orders-log.js"></script>
+    <script src="js/sja.stat.js"></script>
+    <script src="js/sja.users-manager.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

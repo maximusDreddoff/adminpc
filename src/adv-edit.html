@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>adv edit</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- build:css css/plugins.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <!-- endbuild -->
+
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js js/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+  <div class="loader"></div>
+
+    <!-- header -->
+    <header class="header-main">
+      <div class="container">
+        <nav class="navbar" role="navigation">
+          <ul class="nav navbar-nav">
+            <li class="view-mode3-hidden"><a href="#">Продукты</a></li>
+            <li class="view-mode3-hidden view-mode4-hidden view-mode5-hidden view-mode6-hidden view-mode21-hidden"><a href="#">Обмен трафиком</a></li>
+            <li class="view-mode5-hidden view-mode6-hidden"><a href="#">Статистика</a></li>
+            <li class="active view-mode6-hidden view-mode21-hidden"><a href="#">Рекламодатели</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><i class="icon icon-exit"></i><span class="sr-only">Exit</span></a></li>
+          </ul>
+
+          <p class="navbar-text navbar-right">manager2@socialjet.ru</p>
+        </nav>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <!-- content -->
+    <div class="content">
+      <div class="container">
+        <!-- breadcrumbs -->
+        <ol class="breadcrumb">
+          <li><a href="#">Рекламодатели</a></li>
+        </ol>
+        <!-- breadcrumbs -->
+
+        <section id="adv-edit" class="adv-edit">
+          <div class="row">
+            <div class="col-xs-12">
+              <form action="#" class="form-inline adv-name-form" role="form">
+                <div class="form-group adv-title">
+                  <label for="adv-title">Название</label>
+                  <input type="text" id="adv-title" name="adv-title" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="СОХРАНИТЬ" class="btn btn-primary">
+                </div>
+              </form>
+
+              <p class="adv-balance view-mode4-hidden view-mode5-hidden">Баланс: <span></span></p>
+            </div>
+          </div>
+
+          <div class="row adv-postback-wrap">
+            <div class="col-xs-12">
+              <h2>Формат постбэка<small><a href="#filterCollapse" class="pseudo-link" data-toggle="collapse">Развернуть</a></small></h2>
+
+              <div id="filterCollapse" class="collapse">
+                <form action="#" class="form-inline filter-form adv-link-generate-form" role="form">
+                  <div class="clearfix">
+                    <div class="form-group">
+                      <label for="adv-create">Создан</label>
+                      <input type="text" id="adv-create" name="adv-create" class="form-control adv-create">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="adv-accepted">Принят</label>
+                      <input type="text" id="adv-accepted" name="adv-accepted" class="form-control adv-accepted">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="adv-decline">Отказ</label>
+                      <input type="text" id="adv-decline" name="adv-decline" class="form-control adv-decline">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="adv-status">Статус</label>
+                      <input type="text" id="adv-status" name="adv-status" class="form-control adv-status">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="adv-paremeter">Параметр</label>
+                      <input type="text" id="adv-paremeter" name="adv-paremeter" class="form-control adv-parameter">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="adv-fee">Комиссия</label>
+                      <input type="text" id="adv-fee" name="adv-fee" class="form-control adv-fee">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="adv-id">ID</label>
+                      <input type="text" id="adv-id" name="adv-id" class="form-control adv-id">
+                    </div>
+                  </div>
+
+                  <div class="clearfix">
+                    <div class="form-group">
+                      <label for="adv-currency">Валюта</label>
+                      <select id="adv-currency" name="adv-currency" class="form-control adv-currency">
+                        <option value="RUB">RUB</option>
+                        <option value="USD">USD</option>
+                        <option value="eur">EUR</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="clearfix">
+                    <input type="submit" value="Сгенерировать ссылку" class="btn btn-primary">
+                  </div>
+                </form>
+
+                <form action="#" class="form-inline adv-link-copy-form" role="form">
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="copy-link">
+                    <button type="button" class="btn btn-primary copy-link" data-clipboard-target="copy-link">Скопировать ссылку</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="row adv-payments-wrap view-mode4-hidden view-mode5-hidden">
+            <div class="col-xs-12">
+              <h2>Выплаты</h2>
+
+              <form action="#" class="form-inline adv-payments-form" role="form">
+                <div class="form-group">
+                  <label for="adv-amount">Сумма</label>
+                  <input type="text" id="adv-amount" name="adv-amount" class="form-control adv-amount">
+                </div>
+
+                <div class="form-group">
+                  <label for="adv-comment">Комментарий</label>
+                  <input type="text" id="adv-comment" name="adv-comment" class="form-control adv-comment">
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" value="OK" class="btn btn-primary">
+                </div>
+              </form>
+
+              <table class="table table-striped table-list table-sort adv-payments-table">
+                <thead>
+                  <tr>
+                    <th>Дата</th>
+                    <th class="text-right" data-sort-type="format">Сумма</th>
+                    <th>Комментарий</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      var advertizerId = 118;
+    </script>
+    <!-- /content -->
+
+    <!-- build:js js/plugins.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <script src="js/vendor/jquery-ui.js"></script>
+    <script src="js/vendor/jquery.number.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js js/app.js -->
+    <script src="js/sja.js"></script>
+    <script src="js/sja.config.js"></script>
+    <script src="js/sja.common.js"></script>
+    <script src="js/sja.ajax.js"></script>
+    <script src="js/sja.adv.js"></script>
+    <script src="js/sja.adv-edit.js"></script>
+    <script src="js/sja.product-edit.js"></script>
+    <script src="js/sja.product.js"></script>
+    <script src="js/sja.posts.js"></script>
+    <script src="js/sja.tasks.js"></script>
+    <script src="js/sja.tasks-stat.js"></script>
+    <script src="js/sja.orders-log.js"></script>
+    <script src="js/sja.stat.js"></script>
+    <script src="js/sja.users-manager.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>

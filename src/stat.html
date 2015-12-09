@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>stat</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- build:css css/plugins.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <!-- endbuild -->
+
+  <!-- build:css css/main.css -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js js/modernizr.js -->
+  <script src="../bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+<body>
+<div class="loader"></div>
+
+<!-- header -->
+<header class="header-main">
+  <div class="container">
+    <nav class="navbar" role="navigation">
+      <ul class="nav navbar-nav">
+        <li class="active view-mode3-hidden"><a href="#">Продукты</a></li>
+        <li class="view-mode3-hidden view-mode4-hidden view-mode5-hidden view-mode6-hidden view-mode21-hidden"><a href="#">Обмен трафиком</a></li>
+        <li class="view-mode5-hidden view-mode6-hidden"><a href="#">Статистика</a></li>
+        <li class="view-mode6-hidden view-mode21-hidden"><a href="#">Рекламодатели</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><i class="icon icon-exit"></i><span class="sr-only">Exit</span></a></li>
+      </ul>
+
+      <p class="navbar-text navbar-right">manager2@socialjet.ru</p>
+    </nav>
+  </div>
+</header>
+<!-- /header -->
+
+<!-- content -->
+<div class="content">
+  <div class="container">
+    <!-- breadcrumbs -->
+    <ol class="breadcrumb">
+      <li class="active">Статистика</li>
+    </ol>
+    <!-- breadcrumbs -->
+
+    <section class="stat" id="stat">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="clearfix">
+            <form class="form-inline filter-form stat-filter-form" action="#" role="form">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="stat-type">Статистика по</label>
+                    <select class="form-control stat-type hide-input" id="stat-type">
+                      <option value="stat">Общая</option>
+                      <option value="wm">Вебмастерам</option>
+                      <option value="publication">Размещениям</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+          <div class="table-stat-wrap">
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  var statType = 'stat',
+          productId = null,
+          adId = null;
+</script>
+<!-- /content -->
+
+<!-- modals -->
+<div class="modal fade view-product-stat-modal" id="viewProductStat" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form class="form-inline filter-form popup-stat-filter-form" action="#" role="form">
+          <div class="stat-filter-form-wrap-inner" data-type="wm">
+            <div class="row">
+              <div class="col-xs-12">
+                <input class="stat-type" type="hidden" value="">
+                <div class="form-group">
+                  <label for="popupStatFilter">Продукт</label>
+                  <select class="form-control stat-products" id="popupStatFilter">
+                    <option value="null">Все</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Период с</label>
+                  <input type="text" class="form-control date-from stat-date-min"/>
+                  <label>по</label>
+                  <input type="text" class="form-control date-to stat-date-max"/>
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary" value="Показать"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="table-stat-wrap popup-table-stat-wrap">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade view-post-modal" id="viewPostModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modals -->
+
+<!-- build:js js/plugins.js -->
+<!-- bower:js -->
+<!-- endbower -->
+<script src="js/vendor/jquery-ui.js"></script>
+<script src="js/vendor/jquery.number.js"></script>
+<!-- endbuild -->
+
+<!-- build:js js/app.js -->
+<script src="js/sja.js"></script>
+<script src="js/sja.config.js"></script>
+<script src="js/sja.common.js"></script>
+<script src="js/sja.ajax.js"></script>
+<script src="js/sja.adv.js"></script>
+<script src="js/sja.adv-edit.js"></script>
+<script src="js/sja.product-edit.js"></script>
+<script src="js/sja.product.js"></script>
+<script src="js/sja.posts.js"></script>
+<script src="js/sja.tasks.js"></script>
+<script src="js/sja.tasks-stat.js"></script>
+<script src="js/sja.orders-log.js"></script>
+<script src="js/sja.stat.js"></script>
+<script src="js/sja.users-manager.js"></script>
+<!-- endbuild -->
+</body>
+</html>

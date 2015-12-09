@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>users manager</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- build:css css/plugins.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <!-- endbuild -->
+
+  <!-- build:css css/main.css -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js js/modernizr.js -->
+  <script src="../bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+<body>
+<div class="loader"></div>
+
+  <!-- header -->
+  <header class="header-main">
+    <div class="container">
+      <nav class="navbar" role="navigation">
+        <ul class="nav navbar-nav">
+          <li class="active view-mode3-hidden"><a href="#">Продукты</a></li>
+          <li class="view-mode3-hidden view-mode4-hidden view-mode5-hidden view-mode6-hidden view-mode21-hidden"><a href="#">Обмен трафиком</a></li>
+          <li class="view-mode5-hidden view-mode6-hidden"><a href="#">Статистика</a></li>
+          <li class="view-mode6-hidden view-mode21-hidden"><a href="#">Рекламодатели</a></li>
+          <li><a href="#">Лог заказов</a></li>
+          <li><a href="#">Настройки</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><i class="icon icon-exit"></i><span class="sr-only">Exit</span></a></li>
+        </ul>
+
+        <p class="navbar-text navbar-right">manager2@socialjet.ru</p>
+      </nav>
+    </div>
+  </header>
+  <!-- /header -->
+
+  <!-- content -->
+  <div class="content">
+    <div class="container">
+      <!-- breadcrumb -->
+      <ol class="breadcrumb">
+        <li><a href="#">Настройки</a></li>
+      </ol>
+      <!-- /breadcrumb -->
+
+      <section class="users-manager" id="users-manager">
+        <div class="col-users-manager-list">
+          <div class="clearfix users-manager-form-wrap">
+            <div class="col-xs-6">
+              <form class="form-inline filter-form users-manager-form" action="javascript:void(0);" role="form" method="post">
+                <div class="form-group">
+                  <label for="role">Тип</label>
+                  <select class="form-control users-manager-filter-role" id="role">
+                    <option value="0">Все</option>
+                    <option value="admin">Админ</option>
+                    <option value="fin">Бухгалтер</option>
+                    <option value="manager">Менеджер</option>
+                    <option value="product">Менеджер продукта</option>
+                    <option value="content">Копирайтер</option>
+                    <option value="del">Пользователь с отключенным доступом</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary" value="Показать"/>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xs-6">
+              <div class="form-group users-manager-filter-name-wrap">
+                <input type="text" class="form-control users-manager-filter-name" placeholder="Фильтр по имени"/>
+              </div>
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <div class="col-xs-12 table-users-wrap">
+              <table class="table table-list table-sort table-users table-without-outer-borders">
+                <thead>
+                <tr data-id=">ID">
+                  <th>ID</th>
+                  <th>E-mail</th>
+                  <th>Имя</th>
+                  <th>Тип аккаунта</th>
+                </tr>
+                </thead>
+
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-users-manager-info">
+          <div class="clearfix users-manager-toolbar">
+            <div class="col-xs-12">
+              <input type="button" value="Добавить новый аккаунт" class="btn btn-primary js-add-account">
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <div class="col-xs-12 user-manager-edit-form-wrap">
+              <form action="javascript:void(0);" class="form-inline user-manager-edit-form" id="user-manager-edit-form">
+                <div class="form-group">
+                  <label class="input-caption" for="user_edit_form_name">Имя</label>
+                  <input type="text" id="user_edit_form_name" value="" class="form-control" data-bind="name">
+                </div>
+
+                <div class="form-group js-created-at">
+                  <label class="input-caption">Добавлен:</label>
+                  <span class="not-editable" data-bind="createdAt"></span>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="form-group">
+                  <label class="input-caption" for="user_edit_form_description">Описание</label>
+                  <input type="text" id="user_edit_form_description" value="" class="form-control user-edit-form-description" data-bind="description">
+                </div>
+
+                <div class="form-group">
+                  <label class="input-caption" for="user_edit_form_email">E-mail</label>
+                  <input type="text" id="user_edit_form_email" value="" class="form-control" data-bind="login">
+                </div>
+
+                <div class="form-group">
+                  <label class="input-caption" for="user_edit_form_password">Пароль</label>
+                  <input type="text" id="user_edit_form_password" value="" class="form-control user-edit-form-password" data-bind="password">
+                </div>
+
+                <div class="form-group">
+                  <input type="button" value="Сгенерировать новый" class="btn btn-primary js-generate-password"/>
+                </div>
+
+                <div class="form-group">
+                  <label class="input-caption">Аккаунт</label>
+
+                  <div class="radio-block-group js-user-role">
+                    <div class="radio radio-block">
+                      <label>
+                        <input type="radio" value="admin" name="role">
+                        <span class="radio-input"></span>
+                        <div class="radio-caption">
+                          <span class="radio-caption-name">Администратор</span>
+                          <div class="radio-caption-description">доступ ко всем разделам</div>
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="radio radio-block">
+                      <label>
+                        <input type="radio" value="fin" name="role">
+                        <span class="radio-input"></span>
+                        <div class="radio-caption">
+                          <span class="radio-caption-name">Бухгалтер</span>
+                          <div class="radio-caption-description">доступ в раздел "статистика" и "рекламодатели"</div>
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="radio radio-block">
+                      <label>
+                        <input type="radio" value="manager" name="role">
+                        <span class="radio-input"></span>
+                        <div class="radio-caption">
+                          <span class="radio-caption-name">Менеджер</span>
+                          <div class="radio-caption-description">Доступ к списку задач (все)</div>
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="radio radio-block">
+                      <label>
+                        <input type="radio" value="product" name="role">
+                        <span class="radio-input"></span>
+                        <div class="radio-caption">
+                          <span class="radio-caption-name">Менеджер продукта</span>
+                          <div class="radio-caption-description">доступ в разделам: "рекламодатели" и "продукты"</div>
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="radio radio-block">
+                      <label>
+                        <input type="radio" value="content" name="role">
+                        <span class="radio-input"></span>
+                        <div class="radio-caption">
+                          <span class="radio-caption-name">Копирайтер</span>
+                          <div class="radio-caption-description">доступ в раздел продукты</div>
+                        </div>
+                      </label>
+                    </div>
+
+                    <div class="radio radio-block js-default">
+                      <label>
+                        <input type="radio" value="del" name="role">
+                        <span class="radio-input"></span>
+                        <div class="radio-caption">
+                          <span class="radio-caption-name">Неактивный аккаунт</span>
+                          <div class="radio-caption-description">запись отключена</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="form-group">
+                  <input type="submit" value="СОХРАНИТЬ" class="btn btn-primary"/>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <!-- /content -->
+
+  <!-- build:js js/plugins.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <script src="js/vendor/jquery-ui.js"></script>
+  <script src="js/vendor/jquery.number.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js js/app.js -->
+  <script src="js/sja.js"></script>
+  <script src="js/sja.config.js"></script>
+  <script src="js/sja.common.js"></script>
+  <script src="js/sja.ajax.js"></script>
+  <script src="js/sja.adv.js"></script>
+  <script src="js/sja.adv-edit.js"></script>
+  <script src="js/sja.product-edit.js"></script>
+  <script src="js/sja.product.js"></script>
+  <script src="js/sja.posts.js"></script>
+  <script src="js/sja.tasks.js"></script>
+  <script src="js/sja.tasks-stat.js"></script>
+  <script src="js/sja.orders-log.js"></script>
+  <script src="js/sja.stat.js"></script>
+  <script src="js/sja.users-manager.js"></script>
+  <!-- endbuild -->
+</body>
+</html>

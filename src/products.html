@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>products</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- build:css css/plugins.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <!-- endbuild -->
+
+  <!-- build:css css/main.css -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js js/modernizr.js -->
+  <script src="../bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+<body>
+<div class="loader"></div>
+
+  <!-- header -->
+  <header class="header-main">
+    <div class="container">
+      <nav class="navbar" role="navigation">
+        <ul class="nav navbar-nav">
+          <li class="active view-mode3-hidden"><a href="#">Продукты</a></li>
+          <li class="view-mode3-hidden view-mode4-hidden view-mode5-hidden view-mode6-hidden view-mode21-hidden"><a href="#">Обмен трафиком</a></li>
+          <li class="view-mode5-hidden view-mode6-hidden"><a href="#">Статистика</a></li>
+          <li class="view-mode6-hidden view-mode21-hidden"><a href="#">Рекламодатели</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><i class="icon icon-exit"></i><span class="sr-only">Exit</span></a></li>
+        </ul>
+
+        <p class="navbar-text navbar-right">manager2@socialjet.ru</p>
+      </nav>
+    </div>
+  </header>
+  <!-- /header -->
+
+  <!-- content -->
+  <div class="content">
+    <div class="container">
+      <!-- breadcrumb -->
+      <ol class="breadcrumb">
+        <li><a href="#">Продукты</a></li>
+      </ol>
+      <!-- /breadcrumb -->
+
+      <section class="product" id="product">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="clearfix">
+              <form class="form-inline filter-form product-filter-form pull-left" action="#" role="form">
+                <div class="form-group">
+                  <label for="advertizer-enabled">Показать</label>
+                  <select class="form-control product-filter-enabled" id="advertizer-enabled">
+                    <option value="0">Все</option>
+                    <option value="true">Включенные</option>
+                    <option value="false">Выключенные</option>
+                    <option value="arch">Архивированные</option>
+                  </select>
+                </div>
+
+
+                <div class="form-group">
+                  <label for="product-soc-network">Соц. сеть</label>
+                  <select class="form-control product-soc-network hide-input" id="product-soc-network">
+                    <option value="0">Все</option>
+                    <option value="1">Одноклассники</option>
+                    <option value="2">Вконтакте</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Период с</label>
+                  <input type="text" class="form-control date-from product-date-min"/>
+                  <label>по</label>
+                  <input type="text" class="form-control date-to product-date-max"/>
+                </div>
+
+                <div class="form-group">
+                  <select class="form-control product-filter-product-name" id="product-name">
+
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <select class="form-control product-filter-advertizer-type" id="advertizer-type">
+                    <option value="0">Все</option>
+                    <option value="1">Внешние рекламодатели</option>
+                    <option value="2">Пользователи рекламного сервера</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" value="Показать" class="btn btn-primary"/>
+                </div>
+              </form>
+
+              <div class="form-group pull-right">
+                <a class="btn btn-primary" type="button" href="#">ДОБАВИТЬ НОВЫЙ</a>
+              </div>
+            </div>
+
+            <div class="table-product-stat-wrap">
+              <table class="table table-list table-sort table-product-stat">
+                <thead>
+                <tr>
+                  <th>№</th>
+                  <th>Название</th>
+                  <th></th>
+                  <th data-sort-type="format">+/-</th>
+                  <th data-sort-type="format">Разм.</th>
+                  <th data-sort-type="format">Клики/уник</th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden"><span class="icon icon-phone"></span></th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden"><span class="icon icon-ok"></span></th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden"><span class="icon icon-decline"></span></th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden"><span class="icon icon-time"></span></th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">Σ <span class="icon icon-phone"></span></th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">Σ <span class="icon icon-ok"></span></th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">Σ <span class="icon icon-decline"></span></th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">Σ <span class="icon icon-time"></span></th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">Конв.</th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">CPC/за пер.</th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">Охват</th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">CPM</th>
+                  <th data-sort-type="format" class="view-mode5-hidden view-mode6-hidden">CTR</th>
+                  <th data-sort-type="format">Подписчики/за пер.</th>
+                  <th data-sort-type="format">EPKS/за пер.</th>
+                  <th class="view-mode5-hidden"></th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+//    var productId = 19;
+  </script>
+  <!-- /content -->
+
+  <!-- build:js js/plugins.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <script src="js/vendor/jquery-ui.js"></script>
+  <script src="js/vendor/jquery.number.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js js/app.js -->
+  <script src="js/sja.js"></script>
+  <script src="js/sja.config.js"></script>
+  <script src="js/sja.common.js"></script>
+  <script src="js/sja.ajax.js"></script>
+  <script src="js/sja.adv.js"></script>
+  <script src="js/sja.adv-edit.js"></script>
+  <script src="js/sja.product-edit.js"></script>
+  <script src="js/sja.product.js"></script>
+  <script src="js/sja.posts.js"></script>
+  <script src="js/sja.tasks.js"></script>
+  <script src="js/sja.tasks-stat.js"></script>
+  <script src="js/sja.orders-log.js"></script>
+  <script src="js/sja.stat.js"></script>
+  <script src="js/sja.users-manager.js"></script>
+  <!-- endbuild -->
+</body>
+</html>

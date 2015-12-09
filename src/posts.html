@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>posts</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- build:css css/plugins.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <!-- endbuild -->
+
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="../build/css/main.css">
+    <!-- endbuild -->
+
+    <!-- build:js js/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+  <div class="loader"></div>
+
+  <!-- header -->
+  <header class="header-main">
+    <div class="container">
+      <nav class="navbar" role="navigation">
+        <ul class="nav navbar-nav">
+          <li class="active view-mode3-hidden"><a href="#">Продукты</a></li>
+          <li class="view-mode3-hidden view-mode4-hidden view-mode5-hidden view-mode6-hidden view-mode21-hidden"><a href="#">Обмен трафиком</a></li>
+          <li class="view-mode5-hidden view-mode6-hidden"><a href="#">Статистика</a></li>
+          <li class="view-mode6-hidden view-mode21-hidden"><a href="#">Рекламодатели</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><i class="icon icon-exit"></i><span class="sr-only">Exit</span></a></li>
+        </ul>
+
+        <p class="navbar-text navbar-right">manager2@socialjet.ru</p>
+      </nav>
+    </div>
+  </header>
+  <!-- /header -->
+
+  <!-- content -->
+  <div class="content">
+    <div class="container">
+      <!-- breadcrumb -->
+      <ol class="breadcrumb">
+        <li><a href="products.html">Продукты</a></li>
+      </ol>
+      <!-- /breadcrumb -->
+      <div class="form-group pull-right addNewbtn">
+        <a class="btn btn-primary" type="button" href="#newPostModal" data-toggle="modal">ДОБАВИТЬ НОВЫЙ</a>
+      </div>
+      <section class="posts" id="posts">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="clearfix row">
+              <form class="form-inline filter-form posts-filter-form pull-left" action="#" role="form">
+                <div class="form-group col-xs-3">
+                  <label for="posts-filter-enabled">Показать</label>
+                  <select class="form-control posts-filter-enabled" id="posts-filter-enabled">
+                    <option value="0">Все</option>
+                    <option value="1">Включенные</option>
+                    <option value="0">Выключенные</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-xs-3">
+                  <label for="posts-filter-soc-network">Социальная сеть</label>
+                  <select class="form-control posts-filter-soc-network" id="posts-filter-soc-network">
+                    <option value="0">Все</option>
+                    <option value="1">Одноклассники</option>
+                    <option value="2">Вконтакте</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-xs-2">
+                  <label for="posts-filter-gender">Пол</label>
+                  <select class="form-control posts-filter-gender" id="posts-filter-gender">
+                    <option value="0">Все</option>
+                    <option value="1">Мужской</option>
+                    <option value="2">Женский</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-xs-2">
+                <label for="posts-filter-age">Возраст</label>
+                <select class="form-control posts-filter-age" id="posts-filter-age">
+                  <option value="0">Все</option>
+                  <option value="1">до 18</option>
+                  <option value="2">18-24</option>
+                  <option value="3">25-35</option>
+                  <option value="4">35+</option>
+                </select>
+              </div>
+
+                <div class="form-group col-xs-2">
+                  <label for="posts-filter-device">Устройство</label>
+                  <select class="form-control posts-filter-device" id="posts-filter-device">
+                    <option value="0">Все</option>
+                    <option value="1">Мобильный</option>
+                    <option value="2">Компьютер</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-xs-12 cat-input">
+                  <label for="posts-filter-cat">Категории</label>
+                  <input class="form-control posts-filter-cat" id="posts-filter-cat" type="text" class="selectized" tabindex="-1" style="display: block; margin-bottom: 200px;" placeholder="Все">
+                  </input>
+                </div>
+                <div class="form-group col-xs-6">
+                  <label>Период с</label>
+                  <input type="text" class="form-control date-from posts-date-min"/>
+                  <label>по</label>
+                  <input type="text" class="form-control date-to posts-date-max"/>
+                </div>
+
+                <div class="form-group pull-right show_btn">
+                  <a href="#tableSettings" data-toggle="modal" data-target="#tableSettings"><i class="icon icon-cog" data-toggle="tooltip" data-placement="top" title="Настроить таблицу!"></i></a>
+                  <input type="submit" value="Показать" class="btn btn-primary"/>
+                </div>
+              </form>
+            </div>
+
+            <div class="table-posts-stat-wrap">
+              <table class="table table-list table-sort table-posts-stat">
+                <thead>
+                <tr>
+                  <th class="post-id">№</th>
+                  <th class="activation"></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode21-hidden author-name">Автор</th>
+                  <th class="category">Категории</th>
+                  <th class="social-network">СС</th>
+                  <th class="genders">Пол</th>
+                  <th class="years-old">Возраст</th>
+                  <th class="devices">Уст-во</th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode21-hidden changes">Посл. изменение</th>
+                  <th class="placed-number">Разм.</th>
+                  <th data-sort-type="format" class="clicks">Клики/уник</th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden orders-amount" data-sort-type="format"><span class="icon icon-phone"></span></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden accepted" data-sort-type="format"><span class="icon icon-ok"></span></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden rejected" data-sort-type="format"><span class="icon icon-decline"></span></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden awaited" data-sort-type="format"><span class="icon icon-time"></span></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden orders-price" data-sort-type="format">Σ <span class="icon icon-phone"></span></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden accepted-price" data-sort-type="format">Σ <span class="icon icon-ok"></span></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden rejected-price" data-sort-type="format">Σ <span class="icon icon-decline"></span></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden awaited-price" data-sort-type="format">Σ <span class="icon icon-time"></span></th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden conversion" data-sort-type="format">Конв.</th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode21-hidden cpc" data-sort-type="format">CPC/за пер.</th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode21-hidden coverage" data-sort-type="format">Охват</th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode21-hidden cpm" data-sort-type="format">CPM</th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode21-hidden ctr" data-sort-type="format">CTR</th>
+                  <th data-sort-type="format" class="subscription">Подписчики/за пер.</th>
+                  <th class="restricted-view-hide view-mode2-hidden view-mode21-hidden epks" data-sort-type="format">EPKS/за пер.</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script>
+    var productId = 100139;
+  </script>
+  <!-- /content -->
+
+  <!-- modals -->
+  <div class="modal fade view-post-modal" id="viewPostModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer text-right">
+          <button type="button" class="btn btn-primary post-duplicate" data-dismiss="modal">Дублировать</button>
+          <button type="button" class="btn btn-primary post-delete" data-dismiss="modal">Удалить</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade new-post-modal" id="newPostModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="#" class="new-post-form form-inline" role="form">
+          <div class="modal-header">
+            <div class="form-group">
+              <label for="new-post-soc-network">Пост для социальной сети</label>
+              <select id="new-post-soc-network" class="new-post-soc-network form-control hide-search">
+                <option></option>
+                <option value="1">Одноклассники</option>
+                <option value="2">Вконтакте</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="modal-body">
+
+          </div>
+
+          <div class="modal-footer">
+            <div class="row restricted-view-hide">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="form-group col-xs-7">
+                    <label for="new-post-author" class="width_of_label">Автор</label>
+                    <select id="new-post-author" class="new-post-author form-control">
+                    </select>
+                  </div>
+                  <div class="form-group col-xs-5 appears">
+                    <label for="gender">Пол</label>
+                    <select class="form-control gender-post" id="gender">
+                      <option value = 'null' disabled selected>Любой</option>
+                      <option value="1">Мужской</option>
+                      <option value="2">Женский</option>
+                      <!--<option value = null>Любой</option>-->
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-xs-12 new-label-row appears">
+                <div class="row">
+                  <div class="form-group col-xs-7">
+                    <label for="cat-post" class="width_of_label">Категории</label>
+                    <select id="cat-post" class="cat-post new-post-author form-control">
+                      <option value=null>Любой</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-xs-5">
+                    <label for="age">Возраст</label>
+                    <select class="form-control age-post" id="age">
+                      <option value= 'null' disabled selected>Любой</option>
+                      <option value="1">до 18</option>
+                      <option value="2">18-24</option>
+                      <option value="3">25-35</option>
+                      <option value="4">35+</option>
+                      <!--<option value = null>Любой</option>-->
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12 new-label-row appears">
+                <div class="row">
+                  <div class="form-group col-xs-7">
+                    <label for="device" class="width_of_label">Устройство</label>
+                    <select id="device" class="device-post new-post-author  form-control">
+                      <option value= 'null' disabled selected>Любой</option>
+                      <option value="1">Мобильный</option>
+                      <option value="2">Компьютер</option>
+                      <!--<option value = null>Любой</option>-->
+                    </select>
+                  </div>
+                 </div>
+              </div>
+            </div>
+
+            <div class="row btn-bottom-wrap">
+              <div class="col-xs-8">
+                <button type="button" class="btn btn-primary save-duplicate" disabled>Сохранить и дублировать</button>
+                <input type="submit" value="Сохранить" class="btn btn-primary" disabled />
+              </div>
+              <div class="col-xs-4 text-right">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <form class="upload-img-form" action="#" enctype="multipart/form-data">
+          <input type="file" name="file"/>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade add-video-modal" id="addVideoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="#" class="add-video-form form-inline" role="form">
+          <div class="modal-body">
+            <div class="form-group">
+              <input type="text" class="form-control url-video" placeholder="Ссылка на видео с youtube"/>
+            </div>
+          </div>
+
+          <div class="modal-footer text-right">
+            <input type="submit" value="Добавить" class="btn btn-primary"/>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade add-photo-modal" id="addPhotoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="#" class="add-photo-form form-inline" role="form">
+          <div class="modal-body">
+
+            <div class="form-group row">
+              <div class="col-xs-12">
+                <label>Введите URL изображения</label>
+              </div>
+              <div class="col-xs-12">
+                <input type="text" class="form-control url-photo js-photo-link" placeholder="URL изображения">
+              </div>
+            </div>
+
+            <div class="form-group file-control row">
+              <div class="col-xs-12">
+                <label>Или загрузите с компьютера <span class="caption">(до 5 mb)</span></label>
+              </div>
+              <div class="col-xs-9">
+                <input type="text" class="form-control local-photo js-selected-file">
+              </div>
+              <div class="col-xs-3">
+                <button type="button" class="btn btn-primary js-select-file">Выбрать</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer text-right">
+            <input type="button" value="Добавить" class="btn btn-primary js-ok">
+            <input type="button" value="Отмена" class="btn btn-default js-close-btn">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--table settings-->
+  <div class="modal fade tableSettings" id="tableSettings" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="">Настройка таблицы</h4>
+        </div>
+          <div class="modal-body row col-xs-12">
+            <div class="col-xs-8 common-inputs">
+              <form role="form" class="left-checkbox-container col-xs-12">
+              <div class="custom-checkbox checkbox-title">
+                <input type="checkbox" id="common"/>
+                <label for="common"></label> <span>Общее</span>
+              </div>
+                </form>
+              <form role="form" class="left-checkbox-container col-xs-5">
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="post-id"/>
+                  <label for="post-id"></label> <span>ID поста</span>
+                </div>
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="activation" name="check" />
+                  <label for="activation"></label> <span>Вкл/Выкл</span>
+                </div>
+                <div class="custom-checkbox view-mode21-hidden">
+                  <input type="checkbox" id="author-name" name="check" />
+                  <label for="author-name"></label> <span>Автор</span>
+                </div>
+              </form>
+              <form role="form" class="left-checkbox-container col-xs-5">
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="social-network" name="check" />
+                  <label for="social-network"></label> <span>Соц.сеть</span>
+                </div>
+                <div class="custom-checkbox view-mode21-hidden">
+                  <input type="checkbox" id="changes" name="check" />
+                  <label for="changes"></label> <span>Изменения</span>
+                </div>
+              </form>
+            </div>
+
+            <form role="form" class="left-checkbox-container col-xs-4 traffic-inputs">
+              <div class="custom-checkbox checkbox-title">
+                <input type="checkbox" id="traffic"/>
+                <label for="traffic"></label> <span>Трафик</span>
+              </div>
+              <div class="custom-checkbox">
+                <input type="checkbox" id="placed-number"/>
+                <label for="placed-number"></label> <span>Кол-во размещений</span>
+              </div>
+              <div class="custom-checkbox">
+                <input type="checkbox" id="clicks" name="check" />
+                <label for="clicks"></label> <span>Клики</span>
+              </div>
+            </form>
+          </div>
+
+          <div class="modal-body row col-xs-12 view-mode6-hidden view-mode21-hidden">
+            <div class="col-xs-12 orders-inputs">
+              <form role="form" class="left-checkbox-container col-xs-12">
+                <div class="custom-checkbox checkbox-title">
+                  <input type="checkbox" id="orders"/>
+                  <label for="orders"></label> <span>Заказы</span>
+                </div>
+              </form>
+              <form role="form" class="left-checkbox-container col-xs-4">
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="orders-amount"/>
+                  <label for="orders-amount"></label> <span>Количество заказов</span>
+                </div>
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="accepted" name="check" />
+                  <label for="accepted"></label> <span>Принятые</span>
+                </div>
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="rejected" name="check" />
+                  <label for="rejected"></label> <span>Отклонены</span>
+                </div>
+              </form>
+              <form role="form" class="left-checkbox-container col-xs-4">
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="awaited"/>
+                  <label for="awaited"></label> <span>В ожидании</span>
+                </div>
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="orders-price" name="check" />
+                  <label for="orders-price"></label> <span>Сумма заказов</span>
+                </div>
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="accepted-price"/>
+                  <label for="accepted-price"></label> <span>Сумма принятых</span>
+                </div>
+              </form>
+              <form role="form" class="left-checkbox-container col-xs-4">
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="rejected-price" name="check" />
+                  <label for="rejected-price"></label> <span>Сумма отклоненных</span>
+                </div>
+                <div class="custom-checkbox">
+                  <input type="checkbox" id="awaited-price" name="check" />
+                  <label for="awaited-price"></label> <span>Сумма в ожидании</span>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        <div class="modal-body row col-xs-12">
+          <div class="col-xs-6 customers-inputs">
+            <form role="form" class="left-checkbox-container col-xs-12">
+              <div class="custom-checkbox checkbox-title">
+                <input type="checkbox" id="customers"/>
+                <label for="customers"></label> <span>Аудитория</span>
+              </div>
+            </form>
+            <form role="form" class="left-checkbox-container col-xs-6">
+              <div class="custom-checkbox">
+                <input type="checkbox" id="subscription" name="check" />
+                <label for="subscription"></label> <span>Подписки</span>
+              </div>
+              <div class="custom-checkbox">
+                <input type="checkbox" id="category" name="check" />
+                <label for="category"></label> <span>Категория</span>
+              </div>
+              <div class="custom-checkbox">
+                <input type="checkbox" id="genders" name="check" />
+                <label for="genders"></label> <span>Пол</span>
+              </div>
+            </form>
+            <form role="form" class="left-checkbox-container col-xs-6">
+              <div class="custom-checkbox">
+                <input type="checkbox" id="years-old"/>
+                <label for="years-old"></label> <span>Возраст</span>
+              </div>
+              <div class="custom-checkbox">
+                <input type="checkbox" id="devices" name="check" />
+                <label for="devices"></label> <span>Устройство</span>
+              </div>
+              <div class="custom-checkbox view-mode21-hidden">
+                <input type="checkbox" id="coverage"/>
+                <label for="coverage"></label> <span>Охват</span>
+              </div>
+            </form>
+            </div>
+          <div class="col-xs-6 indicator-inputs view-mode21-hidden">
+            <form role="form" class="left-checkbox-container col-xs-12">
+              <div class="custom-checkbox checkbox-title">
+                <input type="checkbox" id="indicators"/>
+                <label for="indicators"></label> <span>Показатели</span>
+              </div>
+            </form>
+            <form role="form" class="left-checkbox-container col-xs-6">
+              <div class="custom-checkbox">
+                <input type="checkbox" id="cpc"/>
+                <label for="cpc"></label> <span>CPC</span>
+              </div>
+              <div class="custom-checkbox">
+                <input type="checkbox" id="cpm" name="check" />
+                <label for="cpm"></label> <span>CPM</span>
+              </div>
+              <div class="custom-checkbox">
+                <input type="checkbox" id="ctr" name="check" />
+                <label for="ctr"></label> <span>CTR</span>
+              </div>
+            </form>
+            <form role="form" class="left-checkbox-container col-xs-6">
+              <div class="custom-checkbox view-mode6-hidden">
+                <input type="checkbox" id="conversion"/>
+                <label for="conversion"></label> <span>Конверсия</span>
+              </div>
+              <div class="custom-checkbox">
+                <input type="checkbox" id="epks" name="check" />
+                <label for="epks"></label> <span>EPKS</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="modal-footer text-right">
+          <input type="button" value="Показать" class="btn btn-primary show-hide-btn">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--table settings-->
+  <!-- /modals -->
+
+  <!-- templates -->
+  <script type="text/template" id="tablePostsStatRowTemplate">
+    <tr data-id="<%= id %>">
+      <td class="post-id">
+        <div class="dropdown">
+          <a href="#" data-toggle="dropdown"><%= id %> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="post-view">Посмотреть</a></li>
+            <li><a href="#" class="post-duplicate">Дублировать</a></li>
+            <li class="view-mode6-hidden"><a href="#" class="post-delete">Удалить</a></li>
+          </ul>
+        </div>
+      </td>
+      <td>
+        <div class="checkbox toggle toggle-sm activation">
+          <label>
+            <input type="checkbox" class="ad-enabled" <%=  (enabled ? 'checked' : '') + (viewMode === 6 ? ' disabled': ' ') %>/>
+            <span class="checkbox-input"></span>
+          </label>
+        </div>
+      </td>
+      <td class="restricted-view-hide view-mode2-hidden view-mode21-hidden author-name"><%= adAuthorName %></td>
+      <td class="restricted-view-hide view-mode2-hidden  category"><%= cat %></td>
+      <td class="social-network"><%= (snId === '1' ? 'OK' : 'VK') %></td>
+      <td class="text-right restricted-view-hide view-mode2-hidden genders"><%= gender %></td>
+      <td class="text-right restricted-view-hide view-mode2-hidden years-old"><%= age %></td>
+      <td class="text-center restricted-view-hide view-mode2-hidden devices"><%= (device === '1' ? '<i class="icon icon-mobile-phone"></i>' : device === '2'  ? '<i class="icon icon-desktop"></i>' : '<i class="icon icon-mobile-phone"></i>&nbsp;<i class="icon icon-desktop"></i>' ) %></td>
+      <td class="restricted-view-hide view-mode2-hidden view-mode21-hidden changes">
+        <span class="icon icon-info pull-right hide" data-toggle="tooltip" data-placement="right" title=""></span>
+        <div class="product-stat-last-change"></div>
+      </td>
+      <td class="text-right placed-number"><a href="<%= publicationStatUrl %>"><%= publicationCount %></a></td>
+      <td class="text-right clicks"><%= $.number(clickCount, 0, ',', ' ') %> / <%= $.number(clickUniqCount, 0, ',', ' ') %></td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden orders-amount"><%= $.number(orderCount, 0, ',', ' ') %></td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden accepted"><%= $.number(saleCount, 0, ',', ' ') %></td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden rejected"><%= $.number(declineCount, 0, ',', ' ') %></td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden awaited"><%= $.number(waitCount, 0, ',', ' ') %></td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden orders-price"><%= $.number(orderIncome, 0, ',', ' ') %> р.</td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden accepted-price"><%= $.number(income, 0, ',', ' ') %> р.</td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden rejected-price"><%= $.number(declineIncome, 0, ',', ' ') %> р.</td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden awaited-price"><%= $.number(waitIncome, 0, ',', ' ') %> р.</td>
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode6-hidden view-mode21-hidden conversion"><%= (saleRatio !== null ? $.number(saleRatio * 100, 2, ',', ' ') + '%' : '-' ) %></td>',
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode21-hidden cpc"><strong><%= $.number(totalCpc, 0, ',', ' ') + ' р. / ' + $.number(cpc, 0, ',', ' ') %> р.</strong></td>',
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode21-hidden coverage"><strong><%= (viewCount !== null ? $.number(viewCount, 0, ',', ' ') : '-') %></strong></td>',
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode21-hidden cpm"><strong><%= (cpm !== null ? $.number(cpm, 2, ',', ' ') + ' р.' : '-') %></strong></td>',
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode21-hidden ctr"><strong><%= (ctr !== null ? $.number(ctr, 2, ',', ' ') : '-') %></strong></td>',
+      <td class="text-right subscription"><strong><%= $.number(totalChannelUserCount, 0, ',', ' ') + ' / ' + $.number(channelUserCount, 0, ',', ' ') %></strong></td>',
+      <td class="text-right restricted-view-hide view-mode2-hidden view-mode21-hidden epks"><strong><%= (totalEpks !== null ? $.number(totalEpks, 2, ',', ' ') + ' р.' : '-') %>  / <%= (epks !== null ? $.number(epks, 2, ',', ' ') + ' р.' : '-') %></strong></td>',
+    </tr>
+  </script>
+
+  <!-- /templates -->
+
+  <!-- build:js js/plugins.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <script src="js/vendor/jquery-ui.js"></script>
+  <script src="js/vendor/jquery.number.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js js/app.js -->
+  <script src="js/sja.js"></script>
+  <script src="js/sja.config.js"></script>
+  <script src="js/sja.common.js"></script>
+  <script src="js/sja.ajax.js"></script>
+  <script src="js/sja.adv.js"></script>
+  <script src="js/sja.adv-edit.js"></script>
+  <script src="js/sja.product-edit.js"></script>
+  <script src="js/sja.product.js"></script>
+  <script src="js/sja.posts.js"></script>
+  <script src="js/sja.tasks.js"></script>
+  <script src="js/sja.tasks-stat.js"></script>
+  <script src="js/sja.orders-log.js"></script>
+  <script src="js/sja.stat.js"></script>
+  <script src="js/sja.users-manager.js"></script>
+  <!-- endbuild -->
+  </body>
+</html>

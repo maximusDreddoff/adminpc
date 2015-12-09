@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>tasks</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- build:css css/plugins.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <!-- endbuild -->
+
+  <!-- build:css css/main.css -->
+  <link rel="stylesheet" href="css/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js js/modernizr.js -->
+  <script src="../bower_components/modernizr/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+
+<body>
+  <div class="loader"></div>
+
+  <!-- header -->
+  <header class="header-main">
+    <div class="container">
+      <nav class="navbar" role="navigation">
+        <ul class="nav navbar-nav">
+          <li class="view-mode3-hidden"><a href="#">Продукты</a></li>
+          <li class="active view-mode3-hidden view-mode4-hidden view-mode5-hidden view-mode6-hidden"><a href="#">Задачи</a></li>
+          <li class="view-mode5-hidden view-mode6-hidden"><a href="#">Статистика</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><i class="icon icon-exit"></i><span class="sr-only">Exit</span></a></li>
+        </ul>
+
+        <p class="navbar-text navbar-right">manager2@socialjet.ru</p>
+      </nav>
+    </div>
+  </header>
+  <!-- /header -->
+  <!-- content -->
+  <div class="content">
+    <div class="container">
+      <!-- breadcrumbs -->
+      <ol class="breadcrumb">
+        <li class="active">Задачи</li>
+      </ol>
+      <!-- breadcrumbs -->
+
+      <section id="tasks">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="clearfix">
+              <div class="form-group">
+                <a class="btn btn-primary" type="button" href="#newTaskModal" data-toggle="modal">ДОБАВИТЬ НОВУЮ</a>
+                <a class="btn btn-primary" type="button" href="#newTaskGroupModal" data-toggle="modal">Добавить группу задач</a>
+              </div>
+
+              <form class="form-inline filter-form" action="#" role="form">
+                <div class="form-group">
+                  <label for="tasks-filter-enabled">Показать</label>
+                  <select class="form-control tasks-filter-enabled" id="tasks-filter-enabled">
+                    <option value="0">Все</option>
+                    <option value="1">Ожидает публикации</option>
+                    <option value="2">Успешно размещено</option>
+                    <option value="3">Ошибка публикации</option>
+                    <option value="4">Отменено</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="tasks-group-filter">Группа</label>
+                  <select class="form-control tasks-group-filter" id="tasks-group-filter">
+                    <option value="0">Все</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Период с</label>
+                  <input type="text" class="form-control date-from"/>
+                  <label>по</label>
+                  <input type="text" class="form-control date-to"/>
+                </div>
+
+                <div class="form-group">
+                  <input type="submit" value="Показать" class="btn btn-primary"/>
+                </div>
+              </form>
+            </div>
+
+            <div class="table-tasks-wrap">
+              <table class="table table-list table-sort table-tasks">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Дата и Время</th>
+                    <th>Группа</th>
+                    <th>Пост</th>
+                    <th data-sort-type="format">Сумма</th>
+                    <th>Статус</th>
+                    <th>Пользователи</th>
+                    <th>Клик / Уник.</th>
+                    <th>Лайки</th>
+                    <th>Репосты</th>
+                    <th>Комментарии</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    var viewMode = 2;
+  </script>
+  <!-- /content -->
+
+  <!-- modals -->
+  <div class="modal fade new-task-modal" id="newTaskModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="#" role="form" class="new-task-form">
+          <div class="modal-body">
+            <div class="form-inline">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="tasks-channel-modal" class="label-right">Группа</label>
+                    <select class="form-control tasks-channel-modal" id="tasks-channel-modal"></select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group pull-left">
+                    <label for="new-task-date" class="label-right">Дата</label>
+                    <input type="text" class="form-control new-task-date datepicker" id="new-task-date">
+                  </div>
+
+                  <div class="form-group pull-right">
+                    <label for="new-task-time-list" class="label-left-two">Время</label>
+                    <select class="form-control new-task-time-list hide-input" id="new-task-time-list">
+                      <option value="0">Другое</option>
+                    </select>
+                    <input type="text" class="form-control new-task-time-field" id="new-task-time-field" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group pull-left">
+                    <label for="new-task-post-id" class="label-right">ID поста</label>
+                    <input type="text" class="form-control new-task-post-id" id="new-task-post-id">
+                  </div>
+
+                  <div class="form-group pull-right">
+                    <label for="new-task-price" class="label-left">Стоимость (р.)</label>
+                    <input type="text" class="form-control new-task-price" id="new-task-price">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-xs-6">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Отмена</button>
+              </div>
+              <div class="col-xs-6 text-right">
+                <input type="submit" id="add-task" class="btn btn-primary" value="Добавить задачу">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade new-task-group-modal" id="newTaskGroupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="#" role="form" class="new-task-group-form">
+          <div class="modal-body">
+            <div class="form-inline">
+              <div class="row">
+                <div class="col-xs-12">
+                  <label class="label-right">Группа</label>
+                  <div class="channel-multiselect">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="js-all">
+                        <span class="checkbox-input"></span>Все
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="js-all-ok">
+                        <span class="checkbox-input"></span>Все OK
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="js-all-vk">
+                        <span class="checkbox-input"></span>Все VK
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group pull-left">
+                    <label for="new-task-group-date" class="label-right">Дата</label>
+                    <input type="text" class="form-control new-task-date datepicker" id="new-task-group-date">
+                  </div>
+
+                  <div class="form-group pull-right">
+                    <label for="new-task-group-time-field" class="label-left-two">Время</label>
+                    <input type="text" class="form-control new-task-time-field" id="new-task-group-time-field">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group pull-left">
+                    <label for="new-task-group-post-id" class="label-right">ID поста</label>
+                    <input type="text" class="form-control new-task-post-id" id="new-task-group-post-id">
+                  </div>
+
+                  <div class="form-group pull-right">
+                    <label for="new-task-group-price" class="label-left">Стоимость (р.)</label>
+                    <input type="text" class="form-control new-task-price" id="new-task-group-price">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-xs-6">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Отмена</button>
+              </div>
+              <div class="col-xs-6 text-right">
+                <input type="submit" id="add-task-group" class="btn btn-primary" value="Добавить группу задач">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade view-stat-modal view-post-modal" id="viewStatModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade view-stat-modal alert-modal" id="alertModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h1>Ошибка!</h1>
+          <p></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ОК</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /modals -->
+
+  <!-- build:js js/plugins.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <script src="js/vendor/jquery-ui.js"></script>
+  <script src="js/vendor/jquery.number.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js js/app.js -->
+  <script src="js/sja.js"></script>
+  <script src="js/sja.config.js"></script>
+  <script src="js/sja.common.js"></script>
+  <script src="js/sja.ajax.js"></script>
+  <script src="js/sja.adv.js"></script>
+  <script src="js/sja.adv-edit.js"></script>
+  <script src="js/sja.product-edit.js"></script>
+  <script src="js/sja.product.js"></script>
+  <script src="js/sja.posts.js"></script>
+  <script src="js/sja.tasks.js"></script>
+  <script src="js/sja.tasks-stat.js"></script>
+  <script src="js/sja.orders-log.js"></script>
+  <script src="js/sja.stat.js"></script>
+  <script src="js/sja.users-manager.js"></script>
+  <!-- endbuild -->
+</body>
+</html>
